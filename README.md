@@ -1,6 +1,6 @@
 # Welcome to Magic link auth!
 This is a simple example of how to implement magic link authentication in your app.
-The step by step tutorial is available on medium [here](Link to be added).
+The step by step tutorial is available on medium [here](https://carbonable.medium.com/338d2896b8bd).
 
 ## Prerequisites 
 
@@ -15,7 +15,7 @@ You should create a `.env` file at the root of the project and add the following
 ```sh
 DATABASE_URL="postgresql://postgres:@localhost:5432/yourdatabasename?schema=public"
 
-SESSION_EXPIRATION_IN_SECONDS=10
+SESSION_EXPIRATION_IN_SECONDS="A number in seconds"
 SESSIONS_SECRETS="A random string"
 HASH_SECRET="A valid salt for bcrypt"
 
