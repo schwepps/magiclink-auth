@@ -1,6 +1,34 @@
-# Welcome to Remix!
+# Welcome to Magic link auth!
+This is a simple example of how to implement magic link authentication in your app.
+The step by step tutorial is available on medium [here](Link to be added).
 
-- [Remix Docs](https://remix.run/docs)
+## Prerequisites 
+
+### Database
+
+In this tutorial we are using [Prisma](https://www.prisma.io/) as ORM and Postgres as database.
+So you need to have a postgres database running on your machine.
+
+### Environment variables
+You should create a `.env` file at the root of the project and add the following variables:
+
+```sh
+DATABASE_URL="postgresql://postgres:@localhost:5432/yourdatabasename?schema=public"
+
+SESSION_EXPIRATION_IN_SECONDS=10
+SESSIONS_SECRETS="A random string"
+HASH_SECRET="A valid salt for bcrypt"
+
+MAILJS_PUBLIC_KEY="Your mailjs public key"
+MAILJS_PRIVATE_KEY="Your mailjs private key"
+MAILJS_SERVICE_ID="Your mailjs service id"
+MAILJS_TEMPLATE_ID="Your mailjs template id"
+```
+
+### Setup
+```sh
+npm install
+```
 
 ## Development
 
@@ -12,42 +40,3 @@ npm run dev
 
 This starts your app in development mode, rebuilding assets on file changes.
 
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
